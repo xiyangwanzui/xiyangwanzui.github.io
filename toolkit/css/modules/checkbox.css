@@ -1,0 +1,274 @@
+﻿.cbr-replaced {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  top: -1px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.cbr-replaced .cbr-input {
+  display: none;
+}
+.cbr-replaced .cbr-state {
+  position: relative;
+  display: block;
+  background: #FFF;
+  border: 1px solid #dddddd;
+  line-height: 1;
+  width: 15px;
+  height: 15px;
+}
+.cbr-replaced .cbr-state span {
+  display: block;
+  background: url(../images/ok.png) no-repeat center center;
+  background-image: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  cursor: pointer;
+}
+.cbr-replaced.cbr-checked span {
+  background-image: url(../images/ok.png);
+}
+
+.cbr-replaced.cbr-disabled .cbr-state span{
+    cursor:not-allowed;
+}
+
+.cbr-replaced.cbr-disabled {
+  zoom: 1;
+  z-index:-14;
+  filter: alpha(opacity=40);
+  -webkit-opacity: 0.4;
+  -moz-opacity: 0.4;
+  opacity: 0.4;
+  filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=40); 
+}
+.cbr-replaced.cbr-radio .cbr-state {
+  -webkit-border-radius: 50%;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 50%;
+  -moz-background-clip: padding;
+  border-radius: 50%;
+  background-clip: padding-box;
+}
+.cbr-replaced.cbr-radio .cbr-state span {
+  background: #FFF;
+  left: 2px;
+  right: 2px;
+  top: 2px;
+  bottom: 2px;
+  -webkit-border-radius: 50%;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 50%;
+  -moz-background-clip: padding;
+  border-radius: 50%;
+  background-clip: padding-box;
+}
+.cbr-replaced.cbr-radio.cbr-checked .cbr-state span {
+  background: #dddddd;
+}
+.cbr-replaced.toolkit-checkbox-color-black .cbr-state {
+  background: #2c2e2f;
+  border-color: #323435;
+}
+.cbr-replaced.toolkit-checkbox-color-black.cbr-checked span {
+  background-image: url(../images/ok-white-full.png);
+}
+.cbr-replaced.toolkit-checkbox-color-black.cbr-radio .cbr-state {
+  background: #fff;
+}
+.cbr-replaced.toolkit-checkbox-color-black.cbr-radio .cbr-state span {
+  background-color: #fff;
+}
+.cbr-replaced.toolkit-checkbox-color-black.cbr-radio.cbr-checked .cbr-state span {
+  background: #2c2e2f;
+}
+.cbr-replaced.toolkit-checkbox-color-darkgreen .cbr-state {
+  background: #68b828;
+  border-color: #68b828;
+}
+.cbr-replaced.toolkit-checkbox-color-darkgreen.cbr-checked span {
+  background-image: url(../images/ok-white-full.png);
+}
+.cbr-replaced.toolkit-checkbox-color-darkgreen.cbr-checked.cbr-radio .cbr-state span {
+  background: #68b828;
+}
+.cbr-replaced.toolkit-checkbox-color-darkgreen.cbr-radio .cbr-state {
+  background: #fff;
+}
+.cbr-replaced.toolkit-checkbox-color-green .cbr-state {
+  background: #8dc63f;
+  border-color: #8dc63f;
+}
+.cbr-replaced.toolkit-checkbox-color-green.cbr-checked span {
+  background-image: url(../images/ok-white-full.png);
+}
+.cbr-replaced.toolkit-checkbox-color-green.cbr-checked.cbr-radio .cbr-state span {
+  background: #8dc63f;
+}
+.cbr-replaced.toolkit-checkbox-color-green.cbr-radio .cbr-state {
+  background: #fff;
+}
+.cbr-replaced.toolkit-checkbox-color-lightblue .cbr-state {
+  background: #40bbea;
+  border-color: #40bbea;
+}
+.cbr-replaced.toolkit-checkbox-color-lightblue.cbr-checked span {
+  background-image: url(../images/ok-white-full.png);
+}
+.cbr-replaced.toolkit-checkbox-color-lightblue.cbr-checked.cbr-radio .cbr-state span {
+  background: #40bbea;
+}
+.cbr-replaced.toolkit-checkbox-color-lightblue.cbr-radio .cbr-state {
+  background: #fff;
+}
+.cbr-replaced.toolkit-checkbox-color-darkred .cbr-state {
+  background: #cc3f44;
+  border-color: #cc3f44;
+}
+.cbr-replaced.toolkit-checkbox-color-darkred.cbr-checked span {
+  background-image: url(../images/ok-white-full.png);
+}
+.cbr-replaced.toolkit-checkbox-color-darkred.cbr-checked.cbr-radio .cbr-state span {
+  background: #cc3f44;
+}
+.cbr-replaced.toolkit-checkbox-color-darkred.cbr-radio .cbr-state {
+  background: #fff;
+}
+.cbr-replaced.toolkit-checkbox-color-orange .cbr-state {
+  background: #ffba00;
+  border-color: #ffba00;
+}
+.cbr-replaced.toolkit-checkbox-color-orange.cbr-checked span {
+  background-image: url(../images/ok-white-full.png);
+}
+.cbr-replaced.toolkit-checkbox-color-orange.cbr-checked.cbr-radio .cbr-state span {
+  background: #ffba00;
+}
+.cbr-replaced.toolkit-checkbox-color-orange.cbr-radio .cbr-state {
+  background: #fff;
+}
+.cbr-replaced.toolkit-checkbox-color-red .cbr-state {
+  background: #d5080f;
+  border-color: #d5080f;
+}
+.cbr-replaced.toolkit-checkbox-color-red.cbr-checked span {
+  background-image: url(../images/ok-white-full.png);
+}
+.cbr-replaced.toolkit-checkbox-color-red.cbr-checked.cbr-radio .cbr-state span {
+  background: #d5080f;
+}
+.cbr-replaced.toolkit-checkbox-color-red.cbr-radio .cbr-state {
+  background: #fff;
+}
+.cbr-replaced.toolkit-checkbox-color-blue .cbr-state {
+  background: #0e62c7;
+  border-color: #0e62c7;
+}
+.cbr-replaced.toolkit-checkbox-color-blue.cbr-checked span {
+  background-image: url(../images/ok-white-full.png);
+}
+.cbr-replaced.toolkit-checkbox-color-blue.cbr-checked.cbr-radio .cbr-state span {
+  background: #0e62c7;
+}
+.cbr-replaced.toolkit-checkbox-color-blue.cbr-radio .cbr-state {
+  background: #fff;
+}
+.cbr-replaced.toolkit-checkbox-color-purple .cbr-state {
+  background: #7c38bc;
+  border-color: #7c38bc;
+}
+.cbr-replaced.toolkit-checkbox-color-purple.cbr-checked span {
+  background-image: url(../images/ok-white-full.png);
+}
+.cbr-replaced.toolkit-checkbox-color-purple.cbr-checked.cbr-radio .cbr-state span {
+  background: #7c38bc;
+}
+.cbr-replaced.toolkit-checkbox-color-purple.cbr-radio .cbr-state {
+  background: #fff;
+}
+.cbr-replaced.toolkit-checkbox-color-pink .cbr-state {
+  background: #ff6264;
+  border-color: #ff6264;
+}
+.cbr-replaced.toolkit-checkbox-color-pink.cbr-checked span {
+  background-image: url(../images/ok-white-full.png);
+}
+.cbr-replaced.toolkit-checkbox-color-pink.cbr-checked.cbr-radio .cbr-state span {
+  background: #ff6264;
+}
+.cbr-replaced.toolkit-checkbox-color-pink.cbr-radio .cbr-state {
+  background: #fff;
+}
+.cbr-replaced.toolkit-checkbox-color-brown .cbr-state {
+  background: #f7aa47;
+  border-color: #f7aa47;
+}
+.cbr-replaced.toolkit-checkbox-color-brown.cbr-checked span {
+  background-image: url(../images/ok-white-full.png);
+}
+.cbr-replaced.toolkit-checkbox-color-brown.cbr-checked.cbr-radio .cbr-state span {
+  background: #f7aa47;
+}
+.cbr-replaced.toolkit-checkbox-color-brown.cbr-radio .cbr-state {
+  background: #fff;
+}
+.cbr-replaced.toolkit-checkbox-color-turquoise .cbr-state {
+  background: #00b19d;
+  border-color: #00b19d;
+}
+.cbr-replaced.toolkit-checkbox-color-turquoise.cbr-checked span {
+  background-image: url(../images/ok-white-full.png);
+}
+.cbr-replaced.toolkit-checkbox-color-turquoise.cbr-checked.cbr-radio .cbr-state span {
+  background: #00b19d;
+}
+.cbr-replaced.toolkit-checkbox-color-turquoise.cbr-radio .cbr-state {
+  background: #fff;
+}
+.cbr-replaced.toolkit-checkbox-color-yellow .cbr-state {
+  background: #fcd036;
+  border-color: #fcd036;
+}
+.cbr-replaced.toolkit-checkbox-color-yellow.cbr-checked span {
+  background-image: url(../images/ok-white-full.png);
+}
+.cbr-replaced.toolkit-checkbox-color-yellow.cbr-checked.cbr-radio .cbr-state span {
+  background: #fcd036;
+}
+.cbr-replaced.toolkit-checkbox-color-yellow.cbr-radio .cbr-state {
+  background: #fff;
+}
+.cbr-replaced.toolkit-checkbox-color-gray .cbr-state {
+  background: #c8c8c8;
+  border-color: #c8c8c8;
+}
+.cbr-replaced.toolkit-checkbox-color-gray.cbr-checked span {
+  background-image: url(../images/ok-white-full.png);
+}
+.cbr-replaced.toolkit-checkbox-color-gray.cbr-checked.cbr-radio .cbr-state span {
+  background: #c8c8c8;
+}
+.cbr-replaced.toolkit-checkbox-color-gray.cbr-radio .cbr-state {
+  background: #fff;
+}
+.cbr-replaced.toolkit-checkbox-color-gray.cbr-checked span {
+  background-image: url(../images/ok.png);
+}
+.cbr-replaced + label {
+  padding-left: 5px;
+}
+label .cbr-replaced {
+  margin-right: 4px;
+}
+label.cbr-inline {
+  padding-top: 7px;
+}
+label.cbr-inline + .cbr-inline {
+  margin-left: 10px;
+}

@@ -1,0 +1,1 @@
+﻿Toolkit.define(["layerlib", "require-css!js/lib/layer/skin/default/layer.css"], function ($) { });
