@@ -68,7 +68,7 @@
       /* 顶部灯串 */
       .garland{
         position:fixed;
-        left:0; right:0; top:0;
+        left:0; right:0; top: env(safe-area-inset-top);
         height:110px;
         z-index:3;
         pointer-events:none;
@@ -83,7 +83,7 @@
         display:flex;
         align-items:center;
         justify-content:center;
-        padding: 24px 16px 80px;
+        padding: calc(24px + env(safe-area-inset-top)) 16px 80px;
       }
 
       .card{
@@ -496,6 +496,7 @@
         color: rgba(234,242,255,.78);
         line-height:1.7;
         font-size: 14px;
+        white-space: pre-line;
       }
       .ritual .pill{
         display:inline-flex;
@@ -559,7 +560,7 @@
         </p>
         <div class="grid">
           <button class="primary" id="startBtn">点亮圣诞 · 开始</button>
-          <div class="small">/div>
+          <div class="small">提示：可以打开声音</div>
         </div>
       </div>
     </div>
