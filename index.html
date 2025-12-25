@@ -1,1 +1,1007 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <title>祝大萌萌圣诞快乐｜一封有仪式感的祝福</title>
+    <style>
+      :root{
+        --bg0:#07111f;
+        --bg1:#0b1a2f;
+        --gold:#f7d37a;
+        --gold2:#ffdca1;
+        --red:#d84b4b;
+        --green:#2dbb7b;
+        --ice:#b7e3ff;
+        --text:#eaf2ff;
+        --muted:rgba(234,242,255,.72);
+        --glass:rgba(255,255,255,.08);
+        --glass2:rgba(255,255,255,.12);
+        --shadow: 0 20px 60px rgba(0,0,0,.55);
+        --shadow2: 0 10px 30px rgba(0,0,0,.45);
+        --radius: 20px;
+      }
+
+      *{ box-sizing:border-box; }
+      html,body{ height:100%; }
+      body{
+        margin:0;
+        font-family: ui-sans-serif, system-ui, -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif;
+        color:var(--text);
+        background:
+          radial-gradient(1200px 900px at 20% 10%, rgba(247,211,122,.14), transparent 55%),
+          radial-gradient(1000px 800px at 85% 20%, rgba(183,227,255,.12), transparent 52%),
+          radial-gradient(900px 700px at 55% 90%, rgba(45,187,123,.10), transparent 55%),
+          linear-gradient(180deg, var(--bg0), var(--bg1));
+        overflow-x:hidden;
+      }
+
+      /* 背景轻微呼吸 */
+      body::before{
+        content:"";
+        position:fixed; inset:-30%;
+        background:
+          radial-gradient(900px 700px at 30% 30%, rgba(255,220,161,.10), transparent 60%),
+          radial-gradient(800px 600px at 70% 60%, rgba(183,227,255,.09), transparent 60%);
+        filter: blur(18px);
+        opacity:.85;
+        transform: translateZ(0);
+        animation: breathe 10s ease-in-out infinite;
+        pointer-events:none;
+        z-index:0;
+      }
+      @keyframes breathe{
+        0%,100%{ opacity:.78; transform: scale(1) translateY(0); }
+        50%{ opacity:.92; transform: scale(1.04) translateY(10px); }
+      }
+
+      /* 雪花画布 */
+      #snow{
+        position:fixed; inset:0;
+        width:100vw; height:100vh;
+        z-index:1;
+        pointer-events:none;
+        opacity: .9;
+      }
+
+      /* 顶部灯串 */
+      .garland{
+        position:fixed;
+        left:0; right:0; top:0;
+        height:110px;
+        z-index:3;
+        pointer-events:none;
+      }
+      .garland svg{ width:100%; height:100%; display:block; }
+
+      /* 主容器 */
+      .wrap{
+        position:relative;
+        z-index:2;
+        min-height:100%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        padding: 24px 16px 80px;
+      }
+
+      .card{
+        width:min(980px, 94vw);
+        border-radius: var(--radius);
+        background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
+        border: 1px solid rgba(255,255,255,.14);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(12px);
+        overflow:hidden;
+        position:relative;
+      }
+
+      .card::after{
+        content:"";
+        position:absolute; inset:0;
+        background:
+          radial-gradient(800px 300px at 50% -10%, rgba(255,220,161,.20), transparent 55%),
+          radial-gradient(700px 380px at 15% 30%, rgba(183,227,255,.12), transparent 60%),
+          radial-gradient(700px 380px at 90% 70%, rgba(45,187,123,.10), transparent 60%);
+        pointer-events:none;
+      }
+
+      header{
+        position:relative;
+        padding: 26px 26px 8px;
+        display:flex;
+        align-items:flex-start;
+        justify-content:space-between;
+        gap: 18px;
+      }
+
+      .brand{
+        display:flex;
+        align-items:center;
+        gap: 12px;
+        min-width: 260px;
+      }
+      .logo{
+        width:44px; height:44px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, rgba(247,211,122,.32), rgba(183,227,255,.18));
+        border: 1px solid rgba(255,255,255,.18);
+        display:grid;
+        place-items:center;
+        box-shadow: var(--shadow2);
+      }
+      .logo svg{ width:26px; height:26px; }
+      .brand .t1{ font-weight: 800; letter-spacing:.2px; }
+      .brand .t2{ font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+      .meta{
+        text-align:right;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.5;
+      }
+      .meta b{ color: var(--text); font-weight: 700; }
+
+      .body{
+        position:relative;
+        padding: 10px 26px 28px;
+        display:grid;
+        grid-template-columns: 1.15fr .85fr;
+        gap: 18px;
+      }
+      @media (max-width: 860px){
+        .body{ grid-template-columns: 1fr; }
+        .meta{ text-align:left; }
+        header{ flex-direction:column; align-items:flex-start; }
+      }
+
+      .hero{
+        padding: 14px 16px 18px;
+        border-radius: 18px;
+        background: rgba(0,0,0,.10);
+        border: 1px solid rgba(255,255,255,.10);
+        box-shadow: 0 16px 50px rgba(0,0,0,.28);
+        position:relative;
+        overflow:hidden;
+      }
+      .hero::before{
+        content:"";
+        position:absolute; inset:-40%;
+        background:
+          conic-gradient(from 230deg, rgba(247,211,122,.10), rgba(183,227,255,.06), rgba(45,187,123,.08), rgba(247,211,122,.10));
+        filter: blur(18px);
+        opacity:.7;
+        animation: swirl 12s linear infinite;
+      }
+      @keyframes swirl{ to{ transform: rotate(360deg); } }
+      .hero > *{ position:relative; }
+
+      .title{
+        font-size: clamp(28px, 4.2vw, 46px);
+        line-height: 1.08;
+        margin: 10px 0 10px;
+        letter-spacing: .3px;
+      }
+      .subtitle{
+        margin: 0 0 12px;
+        color: var(--muted);
+        line-height: 1.6;
+        font-size: 14px;
+      }
+
+      .typewrap{
+        margin-top: 12px;
+        border-radius: 16px;
+        padding: 14px 14px 14px;
+        background: rgba(255,255,255,.07);
+        border: 1px solid rgba(255,255,255,.12);
+      }
+
+      .type{
+        font-size: 16px;
+        line-height: 1.8;
+        margin:0;
+        min-height: 86px;
+        white-space: pre-wrap;
+      }
+      .cursor{
+        display:inline-block;
+        width: 10px;
+        height: 18px;
+        transform: translateY(3px);
+        margin-left: 2px;
+        background: rgba(255,255,255,.65);
+        border-radius: 3px;
+        animation: blink 1s steps(2, end) infinite;
+      }
+      @keyframes blink{ 50%{ opacity: .1; } }
+
+      .actions{
+        display:flex;
+        gap: 10px;
+        flex-wrap:wrap;
+        margin-top: 12px;
+      }
+
+      button{
+        appearance:none;
+        border:0;
+        cursor:pointer;
+        color: var(--text);
+        border-radius: 14px;
+        padding: 12px 14px;
+        font-weight: 700;
+        letter-spacing: .2px;
+        background: rgba(255,255,255,.08);
+        border: 1px solid rgba(255,255,255,.16);
+        box-shadow: 0 12px 30px rgba(0,0,0,.26);
+        transition: transform .12s ease, background .12s ease, border-color .12s ease, opacity .12s ease;
+      }
+      button:hover{ transform: translateY(-1px); background: rgba(255,255,255,.11); border-color: rgba(255,255,255,.22); }
+      button:active{ transform: translateY(0px) scale(.99); }
+      button.primary{
+        background: linear-gradient(135deg, rgba(247,211,122,.22), rgba(216,75,75,.14));
+        border-color: rgba(247,211,122,.26);
+      }
+      button.primary:hover{ background: linear-gradient(135deg, rgba(247,211,122,.28), rgba(216,75,75,.18)); }
+      button.ghost{
+        background: rgba(0,0,0,.06);
+        border-color: rgba(255,255,255,.12);
+        color: rgba(234,242,255,.92);
+      }
+      button:disabled{
+        cursor:not-allowed;
+        opacity: .55;
+        transform:none;
+      }
+
+      .side{
+        display:flex;
+        flex-direction:column;
+        gap: 14px;
+      }
+
+      .panel{
+        border-radius: 18px;
+        padding: 14px;
+        background: rgba(0,0,0,.10);
+        border: 1px solid rgba(255,255,255,.10);
+        box-shadow: 0 16px 50px rgba(0,0,0,.22);
+        position:relative;
+        overflow:hidden;
+      }
+      .panel h3{
+        margin: 0 0 10px;
+        font-size: 14px;
+        letter-spacing: .2px;
+      }
+      .small{
+        color: var(--muted);
+        font-size: 12px;
+        line-height:1.6;
+      }
+      .row{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap: 10px;
+      }
+
+      .countdown{
+        display:grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        margin-top: 10px;
+      }
+      .chip{
+        border-radius: 16px;
+        padding: 10px 10px;
+        text-align:center;
+        background: rgba(255,255,255,.07);
+        border: 1px solid rgba(255,255,255,.12);
+      }
+      .chip b{ display:block; font-size: 18px; letter-spacing:.3px; }
+      .chip span{ display:block; margin-top: 2px; font-size: 11px; color: var(--muted); }
+
+      /* 礼物盒 */
+      .gift{
+        margin-top: 8px;
+        display:grid;
+        place-items:center;
+        padding: 6px 0 2px;
+      }
+      .giftbox{
+        width: min(240px, 70vw);
+        aspect-ratio: 1 / 1;
+        position:relative;
+        transform: translateZ(0);
+        user-select:none;
+      }
+      .box{
+        position:absolute;
+        left: 18%;
+        right: 18%;
+        bottom: 12%;
+        height: 56%;
+        border-radius: 18px;
+        background: linear-gradient(180deg, rgba(216,75,75,.92), rgba(168,36,36,.92));
+        box-shadow: 0 20px 50px rgba(0,0,0,.35);
+        border: 1px solid rgba(255,255,255,.18);
+      }
+      .box::before{
+        content:"";
+        position:absolute; inset:0;
+        background:
+          linear-gradient(90deg, transparent 0 40%, rgba(255,255,255,.10) 40% 60%, transparent 60%),
+          radial-gradient(260px 130px at 50% 0%, rgba(255,220,161,.15), transparent 65%);
+        border-radius: 18px;
+        opacity:.85;
+      }
+      .ribbonV{
+        position:absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 12%;
+        width: 12%;
+        height: 56%;
+        border-radius: 12px;
+        background: linear-gradient(180deg, rgba(247,211,122,.95), rgba(202,162,78,.95));
+        border: 1px solid rgba(255,255,255,.18);
+        box-shadow: 0 16px 30px rgba(0,0,0,.25);
+      }
+      .ribbonH{
+        position:absolute;
+        left: 18%;
+        right: 18%;
+        bottom: 40%;
+        height: 10%;
+        border-radius: 12px;
+        background: linear-gradient(180deg, rgba(247,211,122,.95), rgba(202,162,78,.95));
+        border: 1px solid rgba(255,255,255,.18);
+      }
+
+      .lid{
+        position:absolute;
+        left: 14%;
+        right: 14%;
+        bottom: 62%;
+        height: 18%;
+        border-radius: 18px;
+        background: linear-gradient(180deg, rgba(216,75,75,.95), rgba(168,36,36,.95));
+        border: 1px solid rgba(255,255,255,.18);
+        box-shadow: 0 16px 40px rgba(0,0,0,.30);
+        transform-origin: 50% 100%;
+        transition: transform .8s cubic-bezier(.2,.9,.2,1), filter .8s ease;
+      }
+      .bow{
+        position:absolute;
+        left: 50%;
+        bottom: 78%;
+        transform: translateX(-50%);
+        width: 34%;
+        height: 26%;
+        transition: transform .8s cubic-bezier(.2,.9,.2,1);
+      }
+      .bow::before, .bow::after{
+        content:"";
+        position:absolute;
+        width: 52%;
+        height: 70%;
+        top: 18%;
+        border-radius: 16px 28px 16px 28px;
+        background: linear-gradient(180deg, rgba(247,211,122,.98), rgba(202,162,78,.98));
+        border: 1px solid rgba(255,255,255,.18);
+        box-shadow: 0 14px 22px rgba(0,0,0,.25);
+      }
+      .bow::before{ left: -6%; transform: rotate(-18deg); }
+      .bow::after{ right: -6%; transform: rotate(18deg) scaleX(-1); }
+      .knot{
+        position:absolute;
+        left:50%; top: 42%;
+        transform: translate(-50%,-50%);
+        width: 22%;
+        height: 34%;
+        border-radius: 12px;
+        background: linear-gradient(180deg, rgba(255,220,161,.95), rgba(202,162,78,.95));
+        border: 1px solid rgba(255,255,255,.18);
+        box-shadow: 0 10px 18px rgba(0,0,0,.22);
+      }
+      .sparkle{
+        position:absolute;
+        inset:0;
+        pointer-events:none;
+        opacity:.0;
+        transition: opacity .5s ease;
+      }
+
+      .giftbox.ready .lid,
+      .giftbox.ready .bow{
+        animation: nudge 1.8s ease-in-out infinite;
+      }
+      @keyframes nudge{
+        0%,100%{ transform: translateX(-50%) translateY(0) rotate(0deg); }
+        50%{ transform: translateX(-50%) translateY(-2px) rotate(-1deg); }
+      }
+
+      .giftbox.open .lid{
+        transform: rotateX(55deg) translateY(-10px);
+        filter: brightness(1.06);
+      }
+      .giftbox.open .bow{
+        transform: translateX(-50%) translateY(-8px) scale(1.02);
+      }
+      .giftbox.open .sparkle{ opacity: .95; }
+
+      .reveal{
+        margin-top: 10px;
+        padding: 12px;
+        border-radius: 16px;
+        background: rgba(255,255,255,.07);
+        border: 1px solid rgba(255,255,255,.12);
+        display:none;
+      }
+      .reveal.show{ display:block; }
+      .reveal b{ color: var(--gold2); }
+
+      footer{
+        padding: 14px 26px 22px;
+        color: rgba(234,242,255,.62);
+        font-size: 12px;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap: 10px;
+        position:relative;
+      }
+      footer a{
+        color: rgba(234,242,255,.75);
+        text-decoration: none;
+        border-bottom: 1px dashed rgba(234,242,255,.32);
+      }
+      footer a:hover{ color: rgba(255,220,161,.92); border-bottom-color: rgba(255,220,161,.52); }
+
+      /* 仪式遮罩 */
+      .overlay{
+        position:fixed; inset:0;
+        z-index: 999;
+        display:grid;
+        place-items:center;
+        background:
+          radial-gradient(900px 700px at 50% 35%, rgba(247,211,122,.14), rgba(0,0,0,.72) 60%),
+          linear-gradient(180deg, rgba(0,0,0,.72), rgba(0,0,0,.78));
+        backdrop-filter: blur(10px);
+        transition: opacity .6s ease, transform .6s ease;
+      }
+      .overlay.hidden{
+        opacity:0;
+        pointer-events:none;
+        transform: translateY(-6px);
+      }
+      .ritual{
+        width: min(760px, 92vw);
+        border-radius: 22px;
+        padding: 18px;
+        background: rgba(255,255,255,.08);
+        border: 1px solid rgba(255,255,255,.16);
+        box-shadow: var(--shadow);
+      }
+      .ritual h1{
+        margin: 8px 0 8px;
+        font-size: clamp(22px, 3.6vw, 34px);
+        letter-spacing:.3px;
+      }
+      .ritual p{
+        margin: 0 0 14px;
+        color: rgba(234,242,255,.78);
+        line-height:1.7;
+        font-size: 14px;
+      }
+      .ritual .pill{
+        display:inline-flex;
+        align-items:center;
+        gap: 8px;
+        border-radius: 999px;
+        padding: 8px 12px;
+        background: rgba(255,255,255,.08);
+        border: 1px solid rgba(255,255,255,.12);
+        color: rgba(234,242,255,.86);
+        font-size: 12px;
+      }
+      .ritual .grid{
+        display:flex;
+        flex-wrap:wrap;
+        gap: 10px;
+        align-items:center;
+        justify-content:space-between;
+        margin-top: 10px;
+      }
+
+      /* 彩带纸屑 */
+      #confetti{
+        position:fixed;
+        inset:0;
+        z-index: 900;
+        pointer-events:none;
+      }
+
+      /* 减少动画 */
+      @media (prefers-reduced-motion: reduce){
+        *{ animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+        #snow{ display:none; }
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="snow"></canvas>
+    <canvas id="confetti"></canvas>
+
+    <div class="garland" aria-hidden="true">
+      <svg viewBox="0 0 1200 160" preserveAspectRatio="none">
+        <path d="M0,70 C150,120 260,20 420,70 C560,115 680,35 820,78 C980,130 1060,35 1200,78"
+              fill="none" stroke="rgba(255,255,255,.20)" stroke-width="3" stroke-linecap="round" />
+        <g id="bulbs"></g>
+      </svg>
+    </div>
+
+    <div class="overlay" id="overlay">
+      <div class="ritual">
+        <div class="pill">圣诞仪式 · 满满的仪式感</div>
+        <h1>Merry Christmas, my dear.</h1>
+        <p>
+            This page is small, but the intention is heavy:
+            The lights will be bright, the snow will be gentle, and the words will be written slowly.
+            I hope you will like it.
+            Merry Christmas, my dear.
+            This page is small, but the intention is heavy:
+            The lights will be bright, the snow will be gentle, and the words will be written slowly.
+            I hope you will like it.
+        </p>
+        <div class="grid">
+          <button class="primary" id="startBtn">点亮圣诞 · 开始</button>
+          <div class="small">提示：可以打开声音</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <main class="card" role="main" aria-label="圣诞贺卡">
+        <header>
+          <div class="brand">
+            <div class="logo" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 2c3 3 4 6 4 9 0 3-1 5-4 9-3-4-4-6-4-9 0-3 1-6 4-9Z" stroke="rgba(255,220,161,.92)" stroke-width="1.6"/>
+                <path d="M12 7c-2 2-3 4-3 6 0 2 .7 3.4 3 6 2.3-2.6 3-4 3-6 0-2-1-4-3-6Z" stroke="rgba(183,227,255,.85)" stroke-width="1.2"/>
+              </svg>
+            </div>
+            <div>
+              <div class="t1">圣诞贺卡</div>
+              <div class="t2">2025年12月25日</div>
+            </div>
+          </div>
+          <div class="meta">
+            <div>今天是：<b id="today"></b></div>
+            <div>愿你：<b>平安</b>、<b>温暖</b>、<b>被爱围绕</b></div>
+          </div>
+        </header>
+
+        <section class="body">
+          <section class="hero">
+            <h2 class="title">Happy Christmas, my dear.</h2>
+            <p class="subtitle">
+              词不求繁，但求真。借一盏微光，将祝福徐徐写尽。
+            </p>
+
+            <div class="typewrap" aria-label="祝福文本">
+              <p class="type" id="typeText"></p><span class="cursor" id="cursor" aria-hidden="true"></span>
+            </div>
+
+            <div class="actions">
+              <button class="primary" id="replayBtn" disabled>再写一遍祝</button>
+            </div>
+          </section>
+
+          <aside class="side">
+            <section class="panel">
+              <div class="row">
+                <h3>圣诞倒计时</h3>
+                <div class="small">到 2025 年 12 月 25 日 23:59:59</div>
+              </div>
+              <div class="countdown" id="countdown">
+                <div class="chip"><b id="d">—</b><span>天</span></div>
+                <div class="chip"><b id="h">—</b><span>时</span></div>
+                <div class="chip"><b id="m">—</b><span>分</span></div>
+                <div class="chip"><b id="s">—</b><span>秒</span></div>
+              </div>
+              <p class="small" style="margin:10px 0 0;">
+                不论你此刻在哪个城市，都愿你拥有一段安静又闪亮的夜晚。
+              </p>
+            </section>
+
+            <section class="panel">
+              <div class="row">
+                <h3>Duang~（点一下）</h3>
+                <div class="small">会有小惊喜</div>
+              </div>
+              <div class="gift">
+                <div class="giftbox" id="giftbox" role="button" tabindex="0" aria-label="点击打开礼物盒">
+                  <div class="sparkle" aria-hidden="true">
+                    <svg viewBox="0 0 300 300" width="100%" height="100%">
+                      <defs>
+                        <radialGradient id="glow" cx="50%" cy="50%" r="60%">
+                          <stop offset="0%" stop-color="rgba(255,220,161,.85)"/>
+                          <stop offset="55%" stop-color="rgba(247,211,122,.25)"/>
+                          <stop offset="100%" stop-color="rgba(247,211,122,0)"/>
+                        </radialGradient>
+                      </defs>
+                      <circle cx="150" cy="150" r="110" fill="url(#glow)"/>
+                      <g fill="rgba(183,227,255,.9)">
+                        <path d="M150 68l6 20 20 6-20 6-6 20-6-20-20-6 20-6 6-20Z"/>
+                        <path d="M86 142l4 12 12 4-12 4-4 12-4-12-12-4 12-4 4-12Z" opacity=".8"/>
+                        <path d="M214 160l4 12 12 4-12 4-4 12-4-12-12-4 12-4 4-12Z" opacity=".8"/>
+                      </g>
+                    </svg>
+                  </div>
+                  <div class="bow"><div class="knot"></div></div>
+                  <div class="lid"></div>
+                  <div class="box"></div>
+                  <div class="ribbonV"></div>
+                  <div class="ribbonH"></div>
+                </div>
+              </div>
+              <div class="reveal" id="reveal">
+                <div style="font-weight:700; margin-bottom:6px;">你收到了一个小愿望：</div>
+                <div class="small" id="wish">
+                  <b>愿你</b>在每一个普通的日子里，也能被人认真惦记；愿你抬头看见的，都是更好的光。
+                </div>
+              </div>
+            </section>
+
+          </aside>
+        </section>
+
+        <footer>
+          <div>© <span id="year"></span> · 祝你圣诞快乐，也祝你每天快乐。</div>
+          <div><a href="#" id="scrollTop">回到开头</a></div>
+        </footer>
+      </main>
+    </div>
+
+    <script>
+      // =========================
+      // CUSTOMIZE（你可在这里改祝福）
+      // =========================
+      const CUSTOM = {
+        signature: "—— 大萌萌",
+        lines: [
+          "圣诞安。",
+          "此页虽小，心意甚重：灯将明，雪将落，字将徐书。",
+          "",
+          "遂作一声“开始”，以为今夜之郑重。",
+          "",
+          "愿你岁岁平安，朝朝舒泰；",
+          "愿你所愿皆遂，所行皆安。",
+          "",
+          "亦愿我们把日子过得有光：不求轰烈，但求长暖。",
+          "",
+          "今夕圣诞，愿你万事顺意。"
+        ]
+      };
+
+      const $ = (sel) => document.querySelector(sel);
+      const overlay = $("#overlay");
+      const startBtn = $("#startBtn");
+      const typeText = $("#typeText");
+      const cursor = $("#cursor");
+      const replayBtn = $("#replayBtn");
+      const giftbox = $("#giftbox");
+      const reveal = $("#reveal");
+      const wish = $("#wish");
+      const scrollTop = $("#scrollTop");
+
+      $("#year").textContent = new Date().getFullYear();
+      $("#today").textContent = new Date().toLocaleDateString("zh-CN", {
+        year: "numeric", month: "long", day: "numeric", weekday: "long"
+      });
+
+      // 灯串渲染
+      function buildGarland(){
+        const g = document.getElementById("bulbs");
+        const colors = [
+          "rgba(216,75,75,.95)",
+          "rgba(45,187,123,.92)",
+          "rgba(183,227,255,.92)",
+          "rgba(247,211,122,.95)"
+        ];
+        const points = [];
+        const n = 26;
+        for(let i=0;i<n;i++){
+          const t = i/(n-1);
+          const x = t * 1200;
+          const y = 70 + Math.sin(t * Math.PI * 3) * 22 + (i%2? 6 : -6);
+          points.push({x,y});
+        }
+        g.innerHTML = "";
+        points.forEach((p,i)=>{
+          const c = colors[i%colors.length];
+          const r = 10 + (i%3)*1.2;
+          const blink = 1200 + (i%7)*180;
+          const delay = (i%9)*110;
+          const el = document.createElementNS("http://www.w3.org/2000/svg","circle");
+          el.setAttribute("cx", p.x);
+          el.setAttribute("cy", p.y);
+          el.setAttribute("r", r);
+          el.setAttribute("fill", c);
+          el.setAttribute("opacity", "0.35");
+          el.style.filter = "drop-shadow(0 0 10px rgba(255,255,255,.12))";
+          el.style.animation = `bulb ${blink}ms ease-in-out ${delay}ms infinite`;
+          g.appendChild(el);
+        });
+        const style = document.createElement("style");
+        style.textContent = `
+          @keyframes bulb{
+            0%,100%{ opacity: .25; transform: scale(.96); filter: drop-shadow(0 0 6px rgba(255,255,255,.08)); }
+            50%{ opacity: 1; transform: scale(1); filter: drop-shadow(0 0 16px rgba(255,220,161,.25)); }
+          }
+        `;
+        document.head.appendChild(style);
+      }
+      buildGarland();
+
+      // 倒计时截止：2025-12-25 23:59:59（本地时区）
+      const target = new Date(2025, 11, 25, 23, 59, 59, 0);
+      function tickCountdown(){
+        const now = new Date();
+        let ms = target - now;
+        if(ms < 0) ms = 0;
+        const s = Math.floor(ms/1000);
+        const d = Math.floor(s/86400);
+        const h = Math.floor((s%86400)/3600);
+        const m = Math.floor((s%3600)/60);
+        const ss = s%60;
+        $("#d").textContent = d;
+        $("#h").textContent = String(h).padStart(2,"0");
+        $("#m").textContent = String(m).padStart(2,"0");
+        $("#s").textContent = String(ss).padStart(2,"0");
+      }
+      tickCountdown();
+      setInterval(tickCountdown, 1000);
+
+      // 雪花
+      const snowCanvas = document.getElementById("snow");
+      const snowCtx = snowCanvas.getContext("2d");
+      let snowW = 0, snowH = 0;
+      function resizeSnow(){
+        const dpr = Math.min(2, window.devicePixelRatio || 1);
+        snowW = Math.floor(window.innerWidth);
+        snowH = Math.floor(window.innerHeight);
+        snowCanvas.width = Math.floor(snowW * dpr);
+        snowCanvas.height = Math.floor(snowH * dpr);
+        snowCanvas.style.width = snowW + "px";
+        snowCanvas.style.height = snowH + "px";
+        snowCtx.setTransform(dpr,0,0,dpr,0,0);
+      }
+      window.addEventListener("resize", resizeSnow);
+      resizeSnow();
+
+      const flakes = [];
+      function seedFlakes(n){
+        flakes.length = 0;
+        for(let i=0;i<n;i++){
+          flakes.push({
+            x: Math.random()*snowW,
+            y: Math.random()*snowH,
+            r: 0.7 + Math.random()*2.2,
+            vx: -0.35 + Math.random()*0.7,
+            vy: 0.35 + Math.random()*1.25,
+            a: 0.35 + Math.random()*0.55
+          });
+        }
+      }
+      seedFlakes(Math.min(170, Math.max(90, Math.floor((window.innerWidth*window.innerHeight)/12000))));
+
+      let snowBoost = 0; // 仪式后加一点“更像下雪”
+      function snowLoop(){
+        snowCtx.clearRect(0,0,snowW,snowH);
+        const wind = Math.sin(Date.now()/2400) * (0.18 + snowBoost*0.25);
+        for(const f of flakes){
+          f.x += f.vx + wind;
+          f.y += f.vy + snowBoost*0.35;
+          if(f.y > snowH+10){ f.y = -10; f.x = Math.random()*snowW; }
+          if(f.x < -10) f.x = snowW+10;
+          if(f.x > snowW+10) f.x = -10;
+          snowCtx.beginPath();
+          snowCtx.fillStyle = `rgba(255,255,255,${f.a})`;
+          snowCtx.arc(f.x, f.y, f.r, 0, Math.PI*2);
+          snowCtx.fill();
+        }
+        requestAnimationFrame(snowLoop);
+      }
+      snowLoop();
+
+      // 彩带（confetti）
+      const conf = document.getElementById("confetti");
+      const cctx = conf.getContext("2d");
+      let cw=0,ch=0;
+      function resizeConf(){
+        const dpr = Math.min(2, window.devicePixelRatio || 1);
+        cw = Math.floor(window.innerWidth);
+        ch = Math.floor(window.innerHeight);
+        conf.width = Math.floor(cw*dpr);
+        conf.height = Math.floor(ch*dpr);
+        conf.style.width = cw+"px";
+        conf.style.height = ch+"px";
+        cctx.setTransform(dpr,0,0,dpr,0,0);
+      }
+      window.addEventListener("resize", resizeConf);
+      resizeConf();
+
+      let confetti = [];
+      function burstConfetti(){
+        const colors = ["#f7d37a","#b7e3ff","#2dbb7b","#d84b4b","#ffdca1"];
+        confetti = [];
+        const N = 220;
+        for(let i=0;i<N;i++){
+          const angle = (-Math.PI/2) + (Math.random()*0.9 - 0.45);
+          const sp = 4 + Math.random()*7;
+          confetti.push({
+            x: cw/2 + (Math.random()*120 - 60),
+            y: ch*0.32 + (Math.random()*40 - 20),
+            vx: Math.cos(angle)*sp + (Math.random()*1.2 - 0.6),
+            vy: Math.sin(angle)*sp - (Math.random()*2),
+            g: 0.12 + Math.random()*0.08,
+            r: 2 + Math.random()*4,
+            w: 6 + Math.random()*8,
+            h: 6 + Math.random()*10,
+            rot: Math.random()*Math.PI,
+            vr: (Math.random()*0.22 - 0.11),
+            col: colors[i%colors.length],
+            life: 140 + Math.random()*70
+          });
+        }
+      }
+      function confLoop(){
+        cctx.clearRect(0,0,cw,ch);
+        if(confetti.length){
+          for(const p of confetti){
+            p.x += p.vx;
+            p.y += p.vy;
+            p.vy += p.g;
+            p.rot += p.vr;
+            p.life -= 1;
+            const alpha = Math.max(0, Math.min(1, p.life/160));
+            cctx.save();
+            cctx.translate(p.x,p.y);
+            cctx.rotate(p.rot);
+            cctx.globalAlpha = alpha;
+            cctx.fillStyle = p.col;
+            cctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+            cctx.restore();
+          }
+          confetti = confetti.filter(p => p.life > 0 && p.y < ch + 40);
+        }
+        requestAnimationFrame(confLoop);
+      }
+      confLoop();
+
+      // 简易“圣诞叮”音（WebAudio），仅在用户点击后触发
+      let audioCtx = null;
+      function chime(){
+        try{
+          audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+          const now = audioCtx.currentTime;
+          const master = audioCtx.createGain();
+          master.gain.setValueAtTime(0.0001, now);
+          master.gain.exponentialRampToValueAtTime(0.24, now + 0.02);
+          master.gain.exponentialRampToValueAtTime(0.0001, now + 0.9);
+          master.connect(audioCtx.destination);
+
+          const notes = [880, 1320, 990];
+          notes.forEach((f, i)=>{
+            const o = audioCtx.createOscillator();
+            const g = audioCtx.createGain();
+            o.type = "triangle";
+            o.frequency.setValueAtTime(f, now + i*0.06);
+            g.gain.setValueAtTime(0.0001, now + i*0.06);
+            g.gain.exponentialRampToValueAtTime(0.22, now + i*0.06 + 0.02);
+            g.gain.exponentialRampToValueAtTime(0.0001, now + i*0.06 + 0.38);
+            o.connect(g);
+            g.connect(master);
+            o.start(now + i*0.06);
+            o.stop(now + i*0.06 + 0.42);
+          });
+        }catch(e){
+          // ignore
+        }
+      }
+
+      // 打字机祝福
+      let typingTimer = null;
+      function fullBlessingText(){
+        return CUSTOM.lines.join("\n") + "\n\n" + CUSTOM.signature;
+      }
+      function typewrite(){
+        clearInterval(typingTimer);
+        typeText.textContent = "";
+        cursor.style.display = "inline-block";
+
+        const text = fullBlessingText();
+        let i = 0;
+        const base = 22; // ms
+        const jitter = 26;
+        typingTimer = setInterval(()=>{
+          const ch = text[i];
+          if(ch === undefined){
+            clearInterval(typingTimer);
+            cursor.style.display = "none";
+            replayBtn.disabled = false;
+            return;
+          }
+          typeText.textContent += ch;
+          i++;
+          // 轻微“停顿感”
+          if(ch === "，" || ch === "。" || ch === "；" || ch === "：") i += 0;
+        }, base + Math.random()*jitter);
+      }
+
+      // 回放
+      replayBtn.addEventListener("click", ()=>{
+        replayBtn.disabled = true;
+        typewrite();
+      });
+
+      // 礼物盒：开合
+      const wishes = [
+        "愿你在最冷的季节，也能拥有最暖的被窝、最软的拥抱与最亮的期待。",
+        "愿你这一年所有的努力，都在下一次抬头时，换成更好的风景。",
+        "愿你被生活温柔以待：好事发生、坏事绕路、心事变轻。",
+        "愿你每一次难过都有人懂，每一次开心都有人陪。",
+        "愿你把自己照顾得很好，也被人认真地爱着。"
+      ];
+      function openGift(){
+        const opened = giftbox.classList.toggle("open");
+        if(opened){
+          const msg = wishes[Math.floor(Math.random()*wishes.length)];
+          wish.innerHTML = "<b>愿你</b>" + msg.replace(/^愿你/,"");
+          reveal.classList.add("show");
+          burstConfetti();
+          chime();
+        }else{
+          reveal.classList.remove("show");
+        }
+      }
+      giftbox.addEventListener("click", openGift);
+      giftbox.addEventListener("keydown", (e)=>{
+        if(e.key === "Enter" || e.key === " "){ e.preventDefault(); openGift(); }
+      });
+
+      // 顶部回到开头
+      scrollTop.addEventListener("click", (e)=>{
+        e.preventDefault();
+        window.scrollTo({top:0, behavior:"smooth"});
+      });
+
+      // 仪式开始
+      function startRitual(){
+        overlay.classList.add("hidden");
+        snowBoost = 0.55;
+        giftbox.classList.add("ready");
+        burstConfetti();
+        chime();
+        replayBtn.disabled = true;
+        typewrite();
+      }
+      startBtn.addEventListener("click", startRitual, { once:true });
+
+      // 如果用户刷新后想再次仪式：按 R
+      window.addEventListener("keydown", (e)=>{
+        if(e.key.toLowerCase() === "r" && overlay.classList.contains("hidden")){
+          burstConfetti();
+          chime();
+        }
+      });
+    </script>
+  </body>
+</html>
+
 
